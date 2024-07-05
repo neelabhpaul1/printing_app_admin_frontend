@@ -42,6 +42,7 @@ const Home = () => {
 				socket = openSocket(`${process.env.REACT_APP_API_URL}`);
 
 				socket.on("connect", () => {
+					console.log("connect");
 					socket.emit("join_room", { shopId: data.shopId });
 				});
 
@@ -61,8 +62,8 @@ const Home = () => {
 				triggered: true,
 			});
 
-			socket.on("updatedOrder", (data) => {
-				setOrders((prev) => [...prev, data.updatedOrder]);
+			socket.on("updatedOrders", (data) => {
+				setOrders(data.updatedOrders);
 
 				setDataOfLink({
 					url: data.updatedOrder.docUrl,
