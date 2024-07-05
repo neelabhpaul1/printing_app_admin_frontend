@@ -25,7 +25,8 @@ const PrintActionModal = ({ order, setOrders }) => {
           isTriggered: true,
         })
         .then((res) => {
-          setOrders(res.data.latestOrders);
+          // setOrders(res.data.latestOrders);
+          // console.log("res", res.data.latestOrders);
         })
         .catch((err) => console.log(err.message));
     } catch (error) {
